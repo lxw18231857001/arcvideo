@@ -1,0 +1,52 @@
+<!-- FOOTER -->
+	<footer>
+		<div class="footer-content-bg p-top-35 p-bot-25 foot ">
+			<div class="container  clearfix">
+			
+			<!-- <div class="two-thirds-footer-spec column alpha"> -->
+			<div class="two-thirds-footer-spec column" >
+                  <div class="footer-menu-container">
+						<nav class="clearfix" id="footer-nav">
+						<foreach name="class" item="vo">
+								<ul class="footer-menu">									
+									<if condition="$vo.id eq 6 "><else /> <h9>{$vo.name}</h9></if>
+									<volist name=":getsub($vo['id'])" id="vv">
+									<li><a href="__URL__/{$vv.id|get_class_url}?id={$vv.id}">{$vv.name}</a></li>
+									</volist>
+								</ul>
+							</foreach>	
+						</nav>
+					</div>
+
+						<img src="__PUBLIC__/home/images/weixin-arc.jpg"  class="logo">
+						<div class="newsname"><p>引领全球视听技术的发展</p><p>让人们获得最佳的视听体验</p></div>
+
+				</div>		
+			</div>
+			<div class="container" style="text-align: center">
+				<div class="sixteen columns clearfix" style="color: #9F9F9F;margin-top: 40px;">
+					
+					<div>
+						<span>杭州总部：{$contact.address2}</span> <span> 电话：{$contact.tel2}</span>
+						<span style="margin: 0 10px;">|</span>
+						<span> 北京办事处：{$contact.address}</span><span> 电话：{$contact.tel}</span>
+
+					</div>
+					<div>{$system.copyright} <span class="haogongsi">{$system.record_number}</span></div>
+				</div>
+			</div>
+		</div>
+
+		</div>
+	</footer>	
+		<p id="back-top">
+			<a href="#top" title="顶部"><span></span></a>
+		</p>
+
+		<p id="back-mas">
+			<a href="__URL__/online?id=29" title="留言"><span></span></a>
+		</p>
+</div>
+
+	</body>
+</html>		

@@ -1,0 +1,243 @@
+﻿	<include file="top" />
+
+	<!-- <link rel="stylesheet" type="text/css" href="__PUBLIC__/H-ui/static/h-ui/css/H-ui.min.css" /> -->
+	 <style type="text/css">
+.border tr td{/*text-align:center;*/ border: solid #C0C0C0 1px;}
+  #content{
+    text-align: left;
+  }
+  .border tr td img{
+    width:450px;
+    height:200px;
+  }
+    table tr td:nth-of-type(1){ text-align: right; padding-right: 5px;}
+  input{
+/*    background: #C0C0C0;*/
+    padding:5px;
+    margin-left: 5px;
+    border-color: #c0c0c0;
+  }
+    input.item-caption{
+      background-color: #00a0e9;
+      color: #FFF;
+
+    }
+    .c-red {
+    color: red;
+}
+</style>
+<script type="text/javascript">
+		function chkform(){
+		//验证姓名
+		 var str = document.getElementById('username').value.trim();
+		 	if(str.length==0){
+		 		alert("姓名不能为空");
+				document.getElementById('username').focus();
+				return false;
+		 	}else if(str.length!=0){
+				reg=/^[\u0391-\uFFE5]+$/;
+				if(!reg.test(str)){
+				alert("对不起，请输入中文名!");document.getElementById('username').focus();return false;
+				}
+			}
+
+		//验证手机号
+			var str = document.getElementById('telphone').value.trim();
+		 	if(str.length==0){
+		 		alert("手机号不能为空");
+				document.getElementById('telphone').focus();
+				return false;
+		 	}else if(str.length!=0){
+				reg=/^(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/;
+				if(!reg.test(str)){
+				alert("对不起，您输入的手机号不合法!");document.getElementById('telphone').focus();return false;
+				}
+			}
+		//验证邮箱
+			var str = document.getElementById('email').value.trim();
+		 	if(str.length==0){
+		 		alert("电子邮箱不能为空");
+				document.getElementById('email').focus(); return false;
+		 	}else if(str.length!=0){
+				reg=/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+				if(!reg.test(str)){
+				alert("对不起，电子邮箱不合法!");document.getElementById('email').focus();return false;
+				}
+			}
+		//验证文件是否上传
+		var str = document.getElementById('upfile').value.trim();
+		 	if(str.length==0){
+		 		alert("请添加附件！");
+				document.getElementById('upfile').focus(); return false;
+		 	}
+
+
+		}
+ </script>
+
+<!---人力资源招聘页面-->
+<!-- <div id="slider-container" class=" clearfix"></div> -->
+<div id="slider-containerb" class=" clearfix"></div>
+	<!-- <div class="flexslider loading" >
+           <div class="container columns"> </div >
+            <div class="flex-caption">
+                                <div class="container columns">
+
+										<div class="title">
+											<h2 ><span class="bold" >{$two_pic['title']}</span></h2>
+											<p class="subtitle-2">{$two_pic['content']}</p>
+										</div>
+
+								</div>
+                                </div>
+
+          </div>	 -->
+<div id="menu-s">
+  <div class="grey-b ">
+    <div class="container clearfix ">
+      <div class="mains-nav column">
+	   <!--2017/4/18郭修改导航栏显示问题-->
+	     <ul>
+            <li class="mainn">{$class[7]['name']}</li>
+			<foreach name="menuList" item="v">
+              <if condition="$v.id eq $id">
+                <li>
+                  <a href="__URL__/{$v.id|get_class_url}?id={$v.id}" ><span style="color:#00a0e9">{$v.name}</span></a></li>
+              <else/>
+               <li><a href="__URL__/{$v.id|get_class_url}?id={$v.id}" >{$v.name}</a></li>
+              </if>
+            </foreach>
+          </ul><br/>
+      </div>
+    </div>
+  </div>
+</div>
+
+	<div class="container clearfix m-top-50" id="add_rec1">
+		<div class="column">
+			<h3>{$rec.title}</h3>
+			<p>{$rec.content}</p>
+		</div>
+	</div>
+
+
+
+
+<!-- 合作伙伴 -->
+<!-- <div class="grey-blue m-top-25 "> -->
+<div class="m-top-25 ">
+	<div class="container clearfix p-top-35 p-bot-35" id="add_rec">
+		<!--<div class="sixteen columns m-bot-25 ">
+		<h5>我的简历</h5>
+        </div>-->
+	<form action="__URL__/rec_add" name="" class="rec_add form-inline tijaozil"  method="post" enctype="multipart/form-data" onsubmit="return chkform()">
+		<div class="form-group">
+			<div class="group_url">
+				<label for="job_name">申请职位</label>
+				<input type="text" name="job_name" class="form-control" id="job_name" value="{$list[0]['title']}">
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="group_url">
+				<label for="username">姓名</label>
+				<input type="text" name="username" class="form-control" id="username" value="" placeholder="姓名">
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="group_url">
+				<label for="sex">性别</label>
+				<select id="sex" name="sex"  class="form-control">
+					<option value="1">男</option>
+					<option value="0">女</option>
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="group_url">
+				<label for="telphone">联系电话</label>
+				<input type="text" name="telphone" class="form-control" id="telphone" value="" >
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="group_url">
+				<label for="email">电子邮箱</label>
+				<input type="email" name="email" class="form-control" id="email" value="" >
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="group_url">
+				<label for="school">毕业院校</label>
+				<input type="text" name="school" class="form-control" id="school" value="" >
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="group_url">
+				<label for="major">专业</label>
+				<input type="text" name="major" class="form-control" id="major" value="" >
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="group_url">
+				<label for="record">学历</label>
+				<!-- <input type="text" name="record" class="form-control" id="record" value="" > -->
+				<select id="record" name="record"  class="form-control">
+					<option value="高中/中技/中专">高中/中技/中专</option>
+					<option value="大专">大专</option>
+					<option value="本科">本科</option>
+					<option value="硕士">硕士</option>
+					<option value="MBA">MBA</option>
+					<option value="博士">博士</option>
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="group_url">
+				<label for="">上传简历</label>
+				<!--<a href="javascript:;" class="a-upload">
+					<input type="file" multiple="" name="upfile" id="upfile" class="input-file">添加 +
+				</a>-->
+					<input type="text" name="copyFile" placeholder="建议上传Word文档"  class="textbox" readonly  unselectable="on"/>
+					<a href="javascript:void(0);"  class="link">上传</a>
+					<input type="file" class="uploadFile" name="upfile" id="upfile" onchange="getFile(this,'copyFile')" />
+				<script type="text/javascript">
+					function getFile(obj,inputName){
+						var file_name = $(obj).val();
+						$("input[name='"+inputName+"']").val(file_name);
+					}
+					$(function(){
+						var boxWidth = $(".group_url").width();
+						$(".textbox").width(boxWidth-90);
+					})
+				</script>
+			</div>
+		</div>
+		<div class="sumit" style="width: 100%;display: inline-block;">
+			<div class="group_url">
+			<center >
+				<input 	class="item-caption" type="submit" id="submit"  style="width:20%; height:40px;font-size: 16px;border: none;" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+			</center>
+			</div>
+		</div>
+
+    </form>
+
+
+	</div>
+</div>
+<!-- OUR NEWS End -->
+<!-- LATEST WORK -->
+
+<!-- OUR PROJECTS End -->
+
+
+		<script type="text/javascript" src="__PUBLIC__/home/js/jquery.validate.min.js"></script>
+
+<!-- Sticky nav start -->
+<script type="text/javascript" src="__PUBLIC__/home/js/jquery.sticky.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#menu-s").sticky({topSpacing:0});
+	});
+</script>
+<!-- Sticky nav end -->
+<include file="bottom" />

@@ -1,0 +1,166 @@
+<include file="top" /> 
+<!-- SLIDER -->
+<!--企业荣誉-->
+<!-- SLIDER -->
+<div id="slider-containerb" class=" clearfix">
+   <neq name="two_pic" value="">
+<div class="flexsliderb loading" style="background-image: url(__PUBLIC__/Uploads/class/{$two_pic['pic']})" >
+       <div class="flex-captionb">
+      <div class="container columns">
+      <div class="title">
+        <h2><span class="bold" >{$two_pic['title']}</span></h2>
+        <p class="subtitle-2">{$two_pic['stitle']}</p>
+      </div>
+                  
+    </div>
+     </div>
+ </div>
+    </neq>
+  </div>
+<!-- BUY NOW -->
+   <div id="menu-s">
+    <div class="grey-b "> 
+      <div class="container clearfix "> 
+        <div class="mains-nav column"> 
+	    <!--2017/4/18郭修改导航栏显示问题-->
+		 <ul>
+            <li class="mainn">{$class[7]['name']}</li>
+            <foreach name="menuList" item="v">
+              <if condition="$v.id eq $getId">
+                <li>
+                  <a href="__URL__/{$v.id|get_class_url}?id={$v.id}" ><span style="color:#00a0e9">{$v.name}</span></a></li>
+              <else/>
+               <li><a href="__URL__/{$v.id|get_class_url}?id={$v.id}" >{$v.name}</a></li>
+              </if>
+            </foreach>
+          </ul><br/>
+          <ul>
+			<foreach name="three" item="v">
+            <li class="current"><a  href="#" >{$v.name}</a></li>
+			</foreach>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div> 
+<!--地图-->
+<style type="text/css">
+#map{ margin-top:35px; float:left;}
+.m-top-30{position:absolute; top:0;right:20%;}
+.contactus{ font-size:14px; color:#666; float:left; position:relative; margin-left:0%;right:-6%; }
+@media only screen and (min-width: 1024px) {
+	#map{ width:500px; height:400px; float:left;}
+}
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+#map{ width:600px;
+height:400px;
+}
+.contactus{ width:100%; float:right;}
+}
+@media only screen and (max-width: 767px) {
+	#map{ width:100%; height:300px;}
+}
+.container.filter-portfolio p{ 
+  text-indent:0;
+  font-size:14px;
+
+   }
+
+</style>
+<div style="margin:10px auto 0;">
+<div class="container m-bot-50">
+<div class="column company" >
+    <!--引用百度地图API-->
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=5yjTzmrGwPagW7zMOQ2m73AQIonesf0p"></script>
+
+    <!--百度地图容器-->
+    <div style="border:#ccc solid 1px;font-size:12px " id="map"></div>
+
+  <script type="text/javascript">
+    //创建和初始化地图函数：
+    function initMap(){
+      createMap();//创建地图
+      setMapEvent();//设置地图事件
+      addMapControl();//向地图添加控件
+      addMapOverlay();//向地图添加覆盖物
+    }
+    function createMap(){ 
+      map = new BMap.Map("map"); 
+     map.centerAndZoom(new BMap.Point(120.123963,30.295928),16);
+    }
+    function setMapEvent(){
+      map.enableScrollWheelZoom();
+      map.enableKeyboard();
+      map.enableDragging();
+      map.enableDoubleClickZoom()
+    }
+    function addClickHandler(target,window){
+      target.addEventListener("click",function(){
+        target.openInfoWindow(window);
+      });
+    }
+    function addMapOverlay(){
+      var markers = [
+        {content:"杭州市西湖区西斗门路3号天堂软件园E幢16-17楼",title:"杭州当虹科技有限公司",imageOffset: {width:0,height:3},position:{lat:30.29601,lng:120.124035}}
+      ];
+      for(var index = 0; index < markers.length; index++ ){
+        var point = new BMap.Point(markers[index].position.lng,markers[index].position.lat);
+        var marker = new BMap.Marker(point,{icon:new BMap.Icon("http://www.arcvideo.cn/Public/home/images/weizhi.png",new BMap.Size(20,25),{
+          imageOffset: new BMap.Size(markers[index].imageOffset.width,markers[index].imageOffset.height)
+        })});
+        var label = new BMap.Label(markers[index].title,{offset: new BMap.Size(25,5)});
+        var opts = {
+          width: 200,
+          title: markers[index].title,
+          enableMessage: false
+        };
+        var infoWindow = new BMap.InfoWindow(markers[index].content,opts);
+        marker.setLabel(label);
+        addClickHandler(marker,infoWindow);
+        map.addOverlay(marker);
+      };
+    }
+    //向地图添加控件
+    function addMapControl(){
+      var scaleControl = new BMap.ScaleControl({anchor:BMAP_ANCHOR_BOTTOM_LEFT});
+      scaleControl.setUnit(BMAP_UNIT_IMPERIAL);
+      map.addControl(scaleControl);
+      var navControl = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_LEFT,type:BMAP_NAVIGATION_CONTROL_LARGE});
+      map.addControl(navControl);
+      var overviewControl = new BMap.OverviewMapControl({anchor:BMAP_ANCHOR_BOTTOM_RIGHT,isOpen:true});
+      map.addControl(overviewControl);
+    }
+    var map;
+      initMap();
+  </script>
+<!--地图-->
+
+<!-- CONTENT -->
+	<div class=" filter-portfolio clearfix m-top-30 contactus aboutA">
+					<p>{$contact.map}</p>
+          <p>杭州总部：{$contact.address2}</p>
+					<p>北京办事处：{$contact.address}</p>
+					<p>杭州总机：{$contact.tel2}</p>
+          <p>北京分机：{$contact.tel}</p>
+					<p>邮编：{$contact.post}</p>
+					<p>网址：{$contact.www}</p>
+					<p>E-mail: {$contact.email}</p>
+					<p></p>
+	</div>	
+</div>
+<!-- 去掉合作伙伴  开新页面-->
+
+</div>
+<!-- 去掉合作伙伴  开新页面-->
+<!-- OUR NEWS End -->
+<!-- Sticky nav start -->
+<script type="text/javascript" src="__PUBLIC__/home/js/jquery.sticky.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#menu-s").sticky({topSpacing:0});
+  });
+</script>
+<!-- Sticky nav end -->
+<!-- FOOTER -->
+<include file="bottom" /> 
+					

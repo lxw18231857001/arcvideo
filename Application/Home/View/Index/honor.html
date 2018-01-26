@@ -1,0 +1,178 @@
+<include file="top" /> 
+<!--企业荣誉-->
+<!-- SLIDER -->
+<div id="slider-containerb" class=" clearfix">
+   <neq name="two_pic" value="">
+<div class="flexsliderb loading" > 
+     <img src="__PUBLIC__/Uploads/class/{$two_pic['pic']}" class="item"  /> 
+       <div class="flex-captionb">
+  		<div class="container columns">
+			<div class="title">
+				<h2><span class="bold" >{$two_pic['title']}</span></h2>
+				<p class="subtitle-2">{$two_pic['stitle']}</p>
+			</div>
+									
+		</div>
+     </div>
+ </div>
+		</neq>
+      </div>
+<!-- End slider -->
+
+ <!-- BUY NOW -->  
+  <div id="menu-s" > 
+    <div class="grey-b"> 
+      <div class="container clearfix "> 
+        <div class="mains-nav column"> 
+		 <!--2017/4/18郭修改导航栏显示问题-->
+		  <ul>
+            <li class="mainn">{$class[7]['name']}</li>
+			<foreach name="menuList" item="v">
+              <if condition="$v.id eq $getId">
+                <li>
+                  <a href="__URL__/{$v.id|get_class_url}?id={$v.id}" ><span style="color:#00a0e9">{$v.name}</span></a></li>
+              <else/>
+               <li><a href="__URL__/{$v.id|get_class_url}?id={$v.id}" >{$v.name}</a></li>
+              </if>
+            </foreach>
+          </ul><br/>
+        </div>
+      </div>
+    </div>
+ </div> 
+
+	
+<!-- CONTENT -->
+	<div class="container filter-portfolio clearfix m-top-15">
+			<!-- 企业荣誉 -->
+		<div   class="sixteen columns ">
+		<h5 style="color:#333">企业荣誉</h5>
+        </div>
+		<ul id="portfolio" class="clearfix honor">
+		<!-- PORTFOLIO ITEM -->
+		<foreach name="list_qyry" item="vo">
+			<li data-id="id-1" data-type="category1" class="four columns m-bot-35 honorlist">
+						<div class="hover-item honorlistdiv">
+							<div class="view view-first ">
+								<!-- honor修改为other -->
+								<img style=" width:310px;" src="__PUBLIC__/Uploads/other/{$vo.pic}" alt="Ipsum" >
+								<div class="mask"></div>	
+					            <div class="abs">
+					             <a href="__PUBLIC__/Uploads/other/{$vo.pic}" class="lightbox zoom info"></a> 
+					            </div>	
+							</div>
+							<div class="lw-item-caption-container ">
+								
+									<div class="item-title-main-container clearfix">
+										<div class="item-title-text-container honortitle" style="text-align:center;">
+											{$vo.name}
+										</div>
+									</div>
+							</div>
+						</div>
+				</li>
+			</foreach>
+		</ul>
+
+		<!-- 产品荣誉 -->
+		<div   class="sixteen columns ">
+			<h5 style="color:#333">产品荣誉</h5>
+        </div>
+		<ul id="portfolio" class="clearfix honor">
+		<!-- PORTFOLIO ITEM -->
+		<foreach name="list_cpry" item="vo">
+			<li data-id="id-1" data-type="category1" class="four columns m-bot-35 honorlist">
+						<div class="hover-item honorlistdiv">
+							<div class="view view-first">
+								<!-- honor修改为other -->
+								<img style=" width:310px;" src="__PUBLIC__/Uploads/other/{$vo.pic}" alt="Ipsum" >
+								<div class="mask"></div>	
+					            <div class="abs">
+					             <a href="__PUBLIC__/Uploads/other/{$vo.pic}" class="lightbox zoom info"></a> 
+					            </div>	
+							</div>
+							<div class="lw-item-caption-container">
+								
+									<div class="item-title-main-container clearfix">
+										<div class="item-title-text-container honortitle"  style="text-align:center;">
+											{$vo.name}
+										</div>
+									</div>
+							</div>
+						</div>
+				</li>
+			</foreach>
+		</ul>
+		
+		<!-- 相关荣誉 -->
+		<div   class="sixteen columns ">
+		<h5 style="color:#333">相关荣誉</h5>
+        </div>
+		<ul id="portfolio" class="clearfix honor">
+		<foreach name="list_xgry" item="vo">
+			<li data-id="id-1" data-type="category1" class="four columns m-bot-35 honorlist">
+						<div class="hover-item honorlistdiv">
+							<div class="view view-first">
+								<img style=" width:310px;" src="__PUBLIC__/Uploads/other/{$vo.pic}" alt="Ipsum" >
+								<div class="mask"></div>	
+					            <div class="abs">
+					             <a href="__PUBLIC__/Uploads/other/{$vo.pic}" class="lightbox zoom info"></a> 
+					            </div>	
+							</div>
+							<div class="lw-item-caption-container">
+									<div class="item-title-main-container clearfix">
+										<div class="item-title-text-container honortitle"  style="text-align:center;">
+											{$vo.name}
+										</div>
+									</div>
+							</div>
+						</div>
+				</li>
+			</foreach>
+		</ul>
+
+		<!-- 行业奖项 -->
+		<div   class="sixteen columns ">
+		<h5 style="color:#333">行业奖项</h5>
+        </div>
+		<ul id="portfolio" class="clearfix honor">
+		<!-- PORTFOLIO ITEM -->
+		<foreach name="list_hyjx" item="vo">
+			<li data-id="id-1" data-type="category1" class="four columns m-bot-35 honorlist">
+						<div class="hover-item honorlistdiv">
+							<div class="view view-first">
+								<!-- honor修改为other -->
+								<img style=" width:310px;" src="__PUBLIC__/Uploads/other/{$vo.pic}" alt="Ipsum" >
+								<div class="mask"></div>	
+					            <div class="abs">
+					             <a href="__PUBLIC__/Uploads/other/{$vo.pic}" class="lightbox zoom info"></a> 
+					            </div>	
+							</div>
+							<div class="lw-item-caption-container">
+								
+									<div class="item-title-main-container clearfix">
+										<div class="item-title-text-container honortitle"  style="text-align:center;">
+											{$vo.name}
+										</div>
+									</div>
+							</div>
+						</div>
+				</li>
+			</foreach>
+		</ul>
+</div>	
+	
+
+<!-- 去掉合作伙伴  开新页面-->
+
+
+<!-- OUR NEWS End -->
+<!-- Sticky nav start -->
+<script type="text/javascript" src="__PUBLIC__/home/js/jquery.sticky.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#menu-s").sticky({topSpacing:0});
+	});
+</script>
+<!-- FOOTER -->
+<include file="bottom" /> 

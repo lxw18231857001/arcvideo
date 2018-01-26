@@ -1,0 +1,194 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<!--[if lt IE 9]>
+<script type="text/javascript" src="__PUBLIC__/H-ui/lib/html5.js"></script>
+<script type="text/javascript" src="__PUBLIC__/H-ui/lib/respond.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/H-ui/lib/PIE_IE678.js"></script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/H-ui/static/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/H-ui/static/h-ui.admin/css/H-ui.admin.css" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/H-ui/lib/Hui-iconfont/1.0.7/iconfont.css" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/H-ui/lib/icheck/icheck.css" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/H-ui/static/h-ui.admin/skin/default/skin.css" id="skin" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/H-ui/static/h-ui.admin/css/style.css" />
+<!--[if IE 6]>
+<script type="text/javascript" src="__PUBLIC__/H-ui/lib/DD_belatedPNG_0.0.8a-min.js" ></script>
+<script>DD_belatedPNG.fix('*');</script>
+<![endif]-->
+<title>文章管理</title>
+</head>
+<body>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 内容管理 <span class="c-gray en">&gt;</span> 内容列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<div class="page-container">
+
+	<div class="cl pd-5 bg-1 bk-gray"> 
+		<span class="l"> <a class="btn btn-primary radius" href="javascript:;" onclick="admin_role_add('添加内容','__URL__/article_add?id={$_GET['id']}','800')"><i class="Hui-iconfont">&#xe600;</i> 添加内容</a> </span>
+
+	 </div>
+<if condition="$class_service['id'] eq 8">
+	 <span class="c-red" style="text-valign:bottom;" ></span>
+<elseif/>
+
+</if>
+	
+	<div class="mt-20">
+		<table class="table table-border table-bordered table-bg table-sort">
+			<thead>
+				<tr class="text-c">
+					<th width="50">ID</th>
+					<th width="120">所属类别</th>
+					<if condition="$_GET['id'] eq 7">
+						<th width="200">封面图</th>
+					</if>
+					
+					<th width="130">标题</th>
+					<th width="120">添加时间</th>
+					<if condition="$_GET['id']==7">
+					<th width="120">推荐新闻<br>（1推荐0不推荐）</th>
+					</if>
+					<!-- <th width="100">推送到</th> -->
+					<th width="100">操作<br><!-- <i class="Hui-iconfont">&#xe66b;撤销推送</i> --></th>
+				</tr>
+			</thead>
+			
+			<tbody>
+			<foreach name="list" item="vo">
+				<foreach name="vo" item="vov">
+				<tr class="text-c">
+					<td>{$vov['id']}{$vov['f_id']}</td>
+					<td>{$vov['cid']|get_classname}</td>
+					<if condition="$_GET['id'] eq 7">
+					<td><neq name="vov['pic']" value=""><img src="__PUBLIC__/Uploads/content/{$vov['pic']}" style="width:200px;height:150px;"><else/>该文章并未添加封面图</neq></td>
+					</if>
+					<td>{$vov['title']}</td>
+					<td>{$vov['addtime']|get_date}</td>
+					<if condition="$_GET['id']==7">
+						<td>
+						<form action="__URL__/article_index" method="post">
+						<input  class="input-text text-c" type="text" name="recommend" value="{$vov['recommend']}"  style="width:50px;">
+						<input type="hidden" name="id" value="{$vov['id']}">
+						<input type="submit" value="确定" ></form>
+					</td>
+					</if>
+					
+					<!-- <td>
+					<form action="__URL__/article_hits" method="post">
+					<input  class="input-text text-c" type="text" name="hits" value="{$vov['hits']}"  style="width:50px;">
+					<input type="hidden" name="id" value="{$vov['id']}">
+					<input type="hidden" name="cid" value="{$_GET['id']}">
+					<input type="submit" value="确定" ></form>
+					</td> -->
+					<!-- <td>
+					<form action="__URL__/form_add" method="post">
+					<input type="hidden" name="aid" value="{$vov['id']}">
+					<input type="hidden" name="acid" value="{$vov['cid']}">
+					<select name='cid'>
+					<option value="" >产品中心</option>
+						<foreach name="class_cp" item="v">
+							<volist name=":getsub($v['id'])" id="vv">	
+								<option value="{$vv.id}" <eq name="v.id" value="$vv.id"> disabled="disabled"</eq>>{$vv.name|get_class_orson}
+								</option>
+							</volist>
+						</foreach>
+					<option value="">解决方案</option>
+					<foreach name="class_jj" item="v">
+					<volist name=":getsub($v['id'])" id="vv">	
+					<option value="{$vv.id}" <eq name="v.id" value="$vv.id"> disabled="disabled"</eq>>{$vv.name|get_class_orson}</option>
+					</volist>
+					</foreach>
+					<option value="">成功案例</option>
+					<foreach name="class_cg" item="v">
+					<volist name=":getsub($v['id'])" id="vv">	
+					<option value="{$vv.id}" <eq name="v.id" value="$vv.id"> disabled="disabled"</eq>>{$vv.name|get_class_orson}</option>
+					</volist>
+					</foreach>
+					<option value="">当虹云</option>
+					<foreach name="class_cloud" item="v">
+					<volist name=":getsub($v['id'])" id="vv">	
+					<option value="{$vv.id}" <eq name="v.id" value="$vv.id"> disabled="disabled"</eq>>{$vv.name|get_class_orson}</option>
+					</volist>
+					</foreach>
+					<option value="">新闻中心</option>
+					<foreach name="class_zx" item="v">
+					<volist name=":getsub($v['id'])" id="vv">	
+					<option value="{$vv.id}" <eq name="v.id" value="$vv.id"> disabled="disabled"</eq>>{$vv.name|get_class_orson}</option>
+					</volist>
+					</foreach>
+					<option value="">服务与支持</option>
+					<foreach name="class_zc" item="v">
+					<volist name=":getsub($v['id'])" id="vv">	
+					<option value="{$vv.id}" <eq name="v.id" value="$vv.id"> disabled="disabled"</eq>>{$vv.name|get_class_orson}</option>
+					</volist>
+					</foreach>
+					</select>
+
+					<input type="submit" value="确定" ></form>
+					
+					</td> -->
+					<td class="f-14 product-brand-manage">
+						<!-- <a style="text-decoration:none" class="ml-5"  href="__URL__/article_back?id={$vov['id']}{$vov['f_id']}&&cid={$vov['cid']}" title="撤销相关推送"><i class="Hui-iconfont">&#xe66b;</i></a>&nbsp;&nbsp;&nbsp; -->
+						<a style="text-decoration:none" onClick="admin_role_edit('修改内容','article_save?id={$vov['id']}{$vov['f_id']}&&cid={$vov['cid']}','1')" href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a>
+						 <a style="text-decoration:none" class="ml-5" onClick="admin_role_del({$vov['id']}{$vov['f_id']},{$vov['cid']})" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a>
+					</td>
+				</tr>
+				</foreach>
+			</foreach>
+			</tbody>
+		</table>
+		<!-- <div class="pagination"><ul>{$page}</ul></div> -->
+	</div>
+</div>
+<script type="text/javascript" src="__PUBLIC__/H-ui/lib/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/H-ui/lib/layer/2.1/layer.js"></script>
+<script type="text/javascript" src="__PUBLIC__/H-ui/lib/laypage/1.2/laypage.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/H-ui/lib/My97DatePicker/WdatePicker.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/H-ui/lib/datatables/1.10.0/jquery.dataTables.min.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/H-ui/static/h-ui/js/H-ui.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/H-ui/static/h-ui.admin/js/H-ui.admin.js"></script> 
+<script type="text/javascript">
+/*管理员-角色-添加*/
+function admin_role_add(title,url,w,h){
+	layer_show(title,url,w,h);
+}
+/*管理员-角色-添加*/
+function admin_role_back(title,url,w,h){
+	layer_show(title,url,w,h);
+}
+/*管理员-角色-编辑*/
+function admin_role_edit(title,url,id,w,h){
+	layer_show(title,url,w,h);
+}
+/*管理员-角色-删除*/
+function admin_role_del(id,cid){
+	layer.confirm('文章删除须谨慎，确认要删除吗？',function(index){
+		//此处请求后台程序，下方是成功后的前台处理……
+		 $.ajax({
+                type: "get",
+                async: false,  // 设置同步方式  ********
+                url: "{:U('Article/del_article')}?id=" + id +"&cid="+cid,
+                datatype: "json",
+                success: function (msg)
+                {
+                    if (msg == "0")
+                    {
+						layer.msg('已删除!',{icon:1,time:1000});
+						location.replace(location.href);
+                    }else
+					{
+						layer.msg('删除失败!',{icon:1,time:1000});
+					}
+                    
+                }
+            });
+	});
+}
+
+</script>
+</body>
+</html>

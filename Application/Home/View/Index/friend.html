@@ -1,0 +1,83 @@
+<include file="top" />
+<!--合作伙伴-->
+<!-- SLIDER -->
+<div id="slider-containerb" class=" clearfix">
+  <neq name="two_pic" value="">
+    <div class="flexsliderb loading" style="background-image: url(__PUBLIC__/Uploads/class/{$two_pic['pic']})"> 
+    <!-- <img width="250" src="__PUBLIC__/Uploads/class/{$two_pic['pic']}" class="item"  /> -->
+      <div class="flex-captionb">
+        <div class="container columns">
+          <div class="title">
+            <h2><span class="bold" >{$two_pic['title']}</span></h2>
+            <p class="subtitle-2">{$two_pic['stitle']}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </neq>
+</div>
+<!-- End slider --> 
+
+<!-- BUY NOW -->
+<div id="menu-s" >
+  <div class="grey-b">
+    <div class="container clearfix">
+      <div class="mains-nav column">
+        <ul>
+          <li class="mainn">{$class[7]['name']}</li>
+          <foreach name="menuList" item="v">
+            <if condition="$v.id eq $getId">
+              <li> <a href="__URL__/{$v.id|get_class_url}?id={$v.id}" ><span style="color:#00a0e9">{$v.name}</span></a></li>
+              <else/>
+              <li><a href="__URL__/{$v.id|get_class_url}?id={$v.id}" >{$v.name}</a></li>
+            </if>
+          </foreach>
+        </ul>
+        <br/>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="container filter-portfolio clearfix hezuo">
+  <!-- 合作伙伴 -->
+  <foreach name="friendSon" item="vv" key="key">
+  <div  class="sixteen columns friend-title">
+    <h5 style="margin-bottom: 0;">{$key}</h5>
+  </div>
+  <ul id="portfolio" class="clearfix friend" style="margin-top: 10px;">
+    <foreach name="vv" item="vo">
+      <li data-id="id-1" data-type="category1" class="four columns m-bot-35">
+        <div class="hover-item">
+          <div class="view view-first partnerimg"> <img src="__PUBLIC__/Uploads/other/{$vo.logo}" title="{$vo.name}" alt="Ipsum" >
+            <div class="mask"></div>
+          </div>
+          <div class="lw-item-caption-container ">
+            <div class="item-title-main-container clearfix">
+              <div class="item-title-text-container friendtitle"  style="text-align:center"><a href="{$vo.link}" title="{$vo.name}" target="_blank"> {$vo.name}</a> </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </foreach>
+  </ul>
+</foreach>
+</div>
+
+<center class="pagination">
+  <ul>
+    {$page}
+  </ul>
+</center>
+
+<!-- OUR NEWS End --> 
+<!-- Sticky nav start --> 
+<script type="text/javascript" src="__PUBLIC__/home/js/jquery.sticky.js"></script> 
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#menu-s").sticky({topSpacing:0});
+	});
+</script> 
+<!-- FOOTER --> 
+<include file="bottom" /> 

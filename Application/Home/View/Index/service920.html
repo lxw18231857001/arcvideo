@@ -1,0 +1,135 @@
+﻿<include file="top" />
+<!-- CONTENT 技术支持-->
+<!-- SLIDER -->
+<div id="slider-containerb" class=" clearfix">
+   <neq name="two_pic" value="">
+<div class="flexsliderb loading" > 
+     <img src="__PUBLIC__/Uploads/class/{$two_pic['pic']}" class="item"  /> 
+       <div class="flex-captionb">
+  		<div class="container columns">
+			<div class="title">
+				<h2><span class="bold" >{$two_pic['title']}</span></h2>
+				<p class="subtitle-2">{$two_pic['stitle']}</p>
+			</div>
+									
+		</div>
+     </div>
+ </div>
+		</neq>
+      </div>
+<!-- End slider -->
+
+ <!-- BUY NOW -->  
+<div id="menu-s">
+  <div class="grey-b "> 
+    <div class="container clearfix "> 
+      <div class="mains-nav column"> 
+	   <!--2017/4/18郭修改导航栏显示问题-->
+	   <ul>
+            <li class="mainn">{$class[6]['name']}</li>
+			<foreach name="menuList" item="v">
+              <if condition="$v.id eq $getId">
+                <li>
+                  <a href="__URL__/{$v.id|get_class_url}?id={$v.id}" ><span style="color:#00a0e9">{$v.name}</span></a></li>
+              <else/>
+               <li><a href="__URL__/{$v.id|get_class_url}?id={$v.id}" >{$v.name}</a></li>
+              </if>
+            </foreach>
+          </ul><br/>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 改布局 改为开发中-->
+
+	<!-- <div class="container clearfix clearfix m-top-30">
+		
+		<div style=" padding:30px 0px;">
+        	<center>
+            <img src="__PUBLIC__/home/images/kaifa.jpg" />
+            </center>
+        </div>
+     </div> -->
+<!-- //开发中-->
+		<!-- 屏蔽 -->
+		<div class="container clearfix clearfix m-top-30">
+		 <div class="eleven sttjishu columns m-bot-25">
+				<div class="item-title-main-container clearfix m-bot-15">
+					<div class="item-title-text-container" id="tab174">	常见问题</div>
+				</div>
+
+			<ul  class="clearfix">
+				
+				<foreach name="question" item="vv">
+				<li  class=" b-border ">
+				<a  href="__URL__/service_view?id={$vv.f_id}&&cid={$vv.cid}" >
+				 <div class="news-title">{$vv.title}</div>
+
+				 </a>
+				</li>
+				</foreach>
+			</ul>
+		
+
+			
+				<div class="item-title-main-container clearfix m-bot-15">
+					<div class="item-title-text-container" id="tab175">	客户调研</div>
+				</div>
+					<ul class="clearfix " >
+						<foreach name="survey" item="vv">
+						<li class=" b-border "><a href="__URL__/service_view?id={$vv.f_id}&&cid={$vv.cid}"><div class="news-title">{$vv.title}</div></a></li>
+						</foreach>
+					</ul>
+			
+	</div> 
+	</div> 
+<!-- //屏蔽 -->
+	
+<!-- 改布局 -->
+
+
+<!-- LATEST NEWS -->
+<!-- 去掉合作伙伴 开新页面-->
+<!-- <div class="grey-bg m-top-25 ">
+	<div class="container clearfix p-top-35 p-bot-35 ">
+	<div class="sixteen columns  ">
+		<h5 id="tab1">合作伙伴</h5>
+	</div>			
+	
+	<div class="container clearfix">
+		<div class="sixteen columns m-bot-20">
+            <div class="scrollpic">
+					<div id="mybtns">
+					  <a href="javascript:;" id="right"></a>
+					  <a href="javascript:;" id="left"></a>
+					</div>
+					<div id="myscroll">
+						<div id="myscrollbox">
+							<ul>
+				            <foreach name="friend" item="vo">
+								<li><a href=""><img src="__PUBLIC__/Uploads/other/{$vo.logo}" width="218" height="125" /></a></li>
+							</foreach>
+							</ul>
+						</div>
+					</div>
+				</div>
+		</div>	
+	</div>
+		
+	</div>	
+</div>	 -->	
+<!-- OUR NEWS End -->
+
+
+
+		<script type="text/javascript" src="__PUBLIC__/home/js/jquery.validate.min.js"></script>
+		
+<!-- Sticky nav start -->
+<script type="text/javascript" src="__PUBLIC__/home/js/jquery.sticky.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#menu-s").sticky({topSpacing:0});
+	});
+</script>
+<!-- Sticky nav end -->
+<include file="bottom" />

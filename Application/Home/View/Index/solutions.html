@@ -1,0 +1,100 @@
+<include file="top" /> 
+<div id="slider-containerb" class=" clearfix">
+   <neq name="two_pic" value="">
+<div class="flexsliderb loading" style="background-image: url(__PUBLIC__/Uploads/class/{$two_pic['pic']});"> 
+     <!-- <img src="__PUBLIC__/Uploads/class/{$two_pic['pic']}" class="item"  />  -->
+       <div class="flex-captionb">
+  		<div class="container columns">
+			<div class="title">
+				<h2 ><span class="bold" >{$two_pic['title']}</span></h2>
+				<p class="subtitle-2">{$two_pic['stitle']}</p>
+			</div>
+									
+		</div>
+     </div>
+ </div>
+		</neq>
+      </div>
+     
+   </div><!-- End slider -->
+<!-- BUY NOW -->
+  <div id="menu-s"> 
+    <div class="grey-b "> 
+      <div class="container clearfix "> 
+        <div class="mains-nav column"> 
+          <ul>
+            <li class="mainn">{$class[2]['name']}</li>
+			<foreach name="menuList" item="v">
+				<if condition="$v.id eq $getId">
+					<li><a href="__URL__/solutions?id={$v.id}" ><span style="color:#00a0e9">{$v.name}</span></a></li>
+				<else/>
+				<li><a  href="__URL__/solutions?id={$v.id}" >{$v.name}</a></li>
+				</if>
+			</foreach>
+          </ul>
+        </div>
+      </div>
+    </div>
+</div>
+
+	<!-- content -->
+		<div class="container clearfix m-top-35">
+			<div class="column  title-w">
+				{$two_pic['content']}
+			</div>
+		</div>
+	<!-- content -->	
+
+	
+<!-- LATEST WORK -->
+<div class="grey-bg  m-top-25 ">
+
+	<div class="container filter-portfolio clearfix m-top-25">
+
+<ul id="portfolio" class="clearfix jiefang">
+				<!-- LATEST WORK ITEM -->
+				<foreach name="other" item="v">
+				<li  class="one-third column m-bot-35">
+						<div class="hover-item">
+							<a  href="__URL__/solutions_view?id={$v.id}&&pid={$v.pid}" target="_blank">
+							<div class="view view-first">
+								<img  src="__PUBLIC__/Uploads/class/{$v.id|get_quick_pic}" alt="Ipsum" >
+								<div class="mask"></div>
+							
+							</div>
+						</a>
+							<div class="lw-item-caption-container">
+								<a class="a-invert" href="__URL__/solutions_view?id={$v.id}&&pid={$v.pid}" target="_blank">
+									<div class="item-title-main-container clearfix">
+										<div class="item-title-text-container">
+											{$v.name}
+										</div>
+									</div>
+								</a>
+
+							</div>
+						</div>
+				</li>
+			</foreach>
+			</ul>
+
+	</div></div>	
+<!-- OUR PROJECTS End -->
+
+
+
+
+<!-- OUR video End -->
+
+<!-- OUR NEWS End -->
+<!-- Sticky nav start -->
+<script type="text/javascript" src="__PUBLIC__/home/js/jquery.sticky.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#menu-s").sticky({topSpacing:0});
+	});
+</script>
+<!-- Sticky nav end -->
+
+<!-- FOOTER -->
+<include file="bottom" /> 

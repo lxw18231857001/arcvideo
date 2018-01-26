@@ -1,0 +1,226 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<!--[if lt IE 9]>
+<script type="text/javascript" src="__PUBLIC__/H-ui/lib/html5.js"></script>
+<script type="text/javascript" src="__PUBLIC__/H-ui/lib/respond.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/H-ui/lib/PIE_IE678.js"></script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/H-ui/static/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/H-ui/static/h-ui.admin/css/H-ui.admin.css" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/H-ui/lib/Hui-iconfont/1.0.7/iconfont.css" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/H-ui/lib/icheck/icheck.css" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/H-ui/static/h-ui.admin/skin/default/skin.css" id="skin" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/H-ui/static/h-ui.admin/css/style.css" />
+<!--[if IE 6]>
+<script type="text/javascript" src="__PUBLIC__/H-ui/lib/DD_belatedPNG_0.0.8a-min.js" ></script>
+<script>DD_belatedPNG.fix('*');</script>
+<![endif]-->
+<title>查找替换</title>
+ <script src="__PUBLIC__/admin/js/jquery.js"></script>
+	
+    <script type="text/javascript">
+ //    //优化 修复 结构调用
+	// function LoadUrl(surl){
+	// 	var zhi;
+	// 	$.get('__URL__/click',{zhi:surl},function(data){
+	// 	alert(data);
+	// 	});
+	// }
+
+ //    function HideObj(objname){
+
+ //       var obj = document.getElementByIdx_x(objname);
+
+ //       obj.style.display = "none";
+
+ //    }
+
+
+    //获得选中文件的数据表
+
+
+    function getCheckboxItem(){
+
+    var myform = document.form1;
+
+    var allSel="";
+
+    if(myform.tables.value) return myform.tables.value;
+
+    for(i=0;i<myform.tables.length;i++)
+
+    {
+
+        if(myform.tables[i].checked){
+
+            if(allSel=="")
+
+            allSel=myform.tables[i].value;
+
+            else
+
+            allSel=allSel+","+myform.tables[i].value;
+
+        }
+
+    }
+    return allSel;
+
+    }
+
+
+    //反选
+
+    function ReSel(){
+
+    var myform = document.form1;
+
+    for(i=0;i<myform.tables.length;i++){
+
+    if(myform.tables[i].checked) myform.tables[i].checked = false;
+
+    else myform.tables[i].checked = true;
+
+    }
+
+    }
+
+
+    //全选
+
+    function SelAll(){
+
+    var myform = document.form1;
+
+    for(i=0;i<myform.tables.length;i++){
+
+    myform.tables[i].checked = true;
+
+    }
+
+    }
+
+
+    //取消
+
+    function NoneSel(){
+
+    var myform = document.form1;
+
+    for(i=0;i<myform.tables.length;i++){
+
+    myform.tables[i].checked = false;
+
+    }
+
+    }
+
+    //核查提交的内容
+    function checkSubmit()
+
+    {
+
+    var myform = document.form1;
+    myform.tablearr.value = getCheckboxItem();
+
+    return true;
+
+    }
+
+
+    </script>
+</head>
+<body>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 系统管理 <span class="c-gray en">&gt;</span> 查找替换 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<div class="page-container">
+
+	<div class="cl pd-5 bg-1 bk-gray"> 
+		<form action="__URL__/search"   class="sou_from Huiform" method="post" onSubmit="checkSubmit()">
+            <input type="text" name="title" id="search"  onBlur="if(this.value=='')this.value='关键词';" onFocus="if(this.value=='关键词')this.value='';" value="关键词" style="width:300px;height:30px;border:1px solid #333">
+		  <input type="submit" value="查找" class="btn btn-success">
+		</form>
+		温馨提示：该功能支持产品中心、解决方案、成功案例、新闻中心标题和内容的查找与替换
+	 </div>
+
+	
+	<form action="__URL__/replace" name="form1" class="sou_from Huiform" method="post" onSubmit="checkSubmit()">
+     <input type='hidden' name='tablearr' value='' />
+     <!-- <input type='hidden' name='tablearr_class' value='' /> -->
+	<div class="mt-20">
+		<table class="table table-border table-bordered table-bg table-sort">
+			<thead>
+				<tr class="text-c">
+					<th width="50">选择</th>
+					<th width="50">ID</th>
+					<th width="120">所属部分(一级)</th>
+					<th width="120">所属栏目(二级)</th>
+					<th width="120">所属类别(三级)</th>
+					<th width="130">标题</th>
+					<!-- <th width="130">标题</th> -->
+					<!-- <th width="100">操作<br></th> -->
+				</tr>
+			</thead>
+			
+			<tbody>
+				<!-- <center><h5 产品中心</h5></center> -->
+			<foreach name="mergeArr" item="vo">
+				<tr class="text-c">
+					<td height="24" width="5%">
+		            <input type="checkbox" name="tables" value="{$vo.id}-{$vo['pid']|get_father_id}" class="np" /> 
+		            </td>
+					<td>{$vo['id']}</td>
+					<td>{$vo['pid']|get_father}</td>
+					<td>{$vo['pid']|get_class_pid}</td>
+					<td>{$vo['cid']|get_classname}</td>
+					<td>{$vo['title']}</td>
+				</tr>
+			</foreach>
+			<!-- 二三级页面上半部分 -->
+			<foreach name="classArr" item="vo">
+				<tr class="text-c">
+					<td height="24" width="5%">
+		            <input type="checkbox" name="tables" value="{$vo.id}-class" class="np" /> 
+		            </td>
+					<td>{$vo['id']}</td>
+					<td>{$vo['pid']|get_father}</td>
+					<td>{$vo['pid']|get_class_pid}</td>
+					<td>{$vo['name']}</td>
+					<td>{$vo['title']}</td>
+				</tr>
+			</foreach>
+			</tbody>
+
+			 <tr bgcolor="#ffffff"> 
+	          <td height="24" colspan="8">
+	         	 &nbsp; 
+	            <input name="b1" type="button" id="b1" class="coolbg np" onClick="SelAll()" value="全选" />
+	            &nbsp; 
+	            <input name="b2" type="button" id="b2" class="coolbg np" onClick="ReSel()" value="反选" />
+	            &nbsp; 
+	            <input name="b3" type="button" id="b3" class="coolbg np" onClick="NoneSel()" value="取消" />
+	            &nbsp;&nbsp; 
+	            <input type="text" name="replace" id="search"  onBlur="if(this.value=='')this.value='替换为';" onFocus="if(this.value=='替换为')this.value='';" value="替换为" style="width:300px;height:30px;border:1px solid #333">
+			  	<input type="submit" value="替换" class="btn btn-success">
+	            </td>
+     	 </tr>
+		</table>
+		<!-- <div class="pagination"><ul>{$page}</ul></div> -->
+	</div>
+	</form>
+</div>
+<script type="text/javascript" src="__PUBLIC__/H-ui/lib/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/H-ui/lib/layer/2.1/layer.js"></script>
+<script type="text/javascript" src="__PUBLIC__/H-ui/lib/laypage/1.2/laypage.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/H-ui/lib/My97DatePicker/WdatePicker.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/H-ui/lib/datatables/1.10.0/jquery.dataTables.min.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/H-ui/static/h-ui/js/H-ui.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/H-ui/static/h-ui.admin/js/H-ui.admin.js"></script> 
+<script src="__PUBLIC__/admin/js/jquery.js"></script>
+</body>
+</html>

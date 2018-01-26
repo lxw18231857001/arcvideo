@@ -1,0 +1,182 @@
+﻿ <include file="top" />
+<!--首页面 -->
+ <style>
+     .carousel-video:after {
+         content: " ";
+         height: 100%;
+         width: 100%;
+         background-color: #000;
+         display: block;
+         position: absolute;
+         top: 0;
+         opacity: 0.3;
+         z-index: 66;
+     }
+     .carousel.slide{
+         position: absolute;
+         z-index: 99;
+     }
+     .elaborate-1 h2,.elaborate-1 p{
+         color: #fff;
+     }
+     .dot{display: none}
+
+     .slide{
+         width: 100%;
+        /* background: #000;
+         background-color: rgba(0,0,0,0.3);*/
+     }
+     @media only screen and (max-width: 767px) {
+         .slide{top: 1px;}
+         .carousel-video:after{display: none;}
+     }
+     @media only screen and (min-width: 767px) and (max-width: 789px){
+         .slide{top: 1px;}
+         .wrap.af4{margin-top: 1%;}
+         .carousel-video:after{display: none;}
+     }
+     @media only screen and (min-width: 1023px) and (max-width: 1025px) {
+         .slide{top: 8px;}
+         .wrap.af4{margin-top: 10%;}
+     }
+     @media only screen and (min-width: 1025px){
+         .slide{top: 1px;}
+         .wrap.af4{    margin-top: 10%; padding-left: 8%;}
+     }
+     .carousel.slide{
+         top: 0px;
+     }
+	 .elaborate-1 .title h2{ font-size:45px; line-height:45px; margin-bottom:35px; font-weight:100;}
+	 .elaborate-1 .subtitle-2{ font-size:28px; line-height:28px; font-weight:100;}
+ </style>
+ <script type="text/javascript" src="__PUBLIC__/home/js/L_slide.js"></script>
+ <script type="text/javascript">
+     $(function(){
+         $(".af4").slide({
+             affect:4,
+             time:5000,
+             speed:800
+         });
+         var ujj = $(".video").height();
+         var sd = ujj*0.7496518;
+         $(".slide").height(sd);
+         if($.browser.mozilla){
+             var redr = ujj*0.70118343;
+             $(".slide").height(redr);
+         }
+     })
+ </script>
+ <script>
+     $(window).resize(function() {
+         var ujj = $(".video").height();
+         $(".slide").height(ujj);
+         if($.browser.mozilla){
+             $(".slide").height(ujj);
+         }
+     })
+ </script>
+   <div class="bannerArea">
+       <div class="carousel-video">
+      
+         <video class="video" src="__PUBLIC__/home/video/banner.mp4" autoplay loop style="display: block;width: 100%;"></video>
+     </div>
+     <div class="kell"></div>
+     <!-- 轮播（Carousel）视频End -->
+     <div class="carousel slide ">
+         <!-- 轮播（Carousel）项目 -->
+         <div class="wrap af4 lunbou">
+             <ul class="slidebox">
+                 <foreach name="advertisement" item="vo" key="k" >
+                     <li class="elaborate-1">
+                         <div class="title">
+                             <h2 >{$vo.title}</h2>
+                             <p class="subtitle-2">{$vo.content}</p>
+                         </div>
+                         <div class="subtitle-3">
+                             <if condition="$k eq $houId">
+                                 <a href="{$vo.link}" class="buttonb medium">了解更多</a>
+                                 <else/>
+                                 <a href="__URL__/{$vo.link}" class="buttonb medium">了解更多</a>
+                             </if>
+                         </div>
+                     </li>
+                 </foreach>
+             </ul>
+         </div>
+         <!-- 轮播（Carousel）项目End -->
+
+     </div>
+ </div>
+<!-- End slider -->
+<div  style="padding-top:2%;">
+<!--产品中心-->
+<div class="clearfix container100" >
+<!--产品中心-->
+
+<div class="clearfix container100 " >
+  <div class=" video fiveteen columns"  >
+      <div class="dhy2 ">
+          <a href="__URL__/products?id=142">
+              <h2 >产品中心</h2>
+          </a>
+          <a href="__URL__/{$cloud.link}" ><h3 >{$cloud['content']}</h3> </a>
+      </div>
+    <div  style="position:relative;width:100%;overflow:hidden; margin-left:0; ">
+        <a id="video1" href="__URL__/{$cloud.link}" target="_blank">
+      <img src="__PUBLIC__/Uploads/{$cloud.other}" >
+      </a>
+    </div>
+  </div>
+  <!--产品中心--> 
+  
+  <!--解决方案-->
+  <div class="video t25 columns">
+    <foreach name="solutionList" item="vo">
+        <div class="dhy ">
+            <a href="__URL__/solutions?id=16">
+                <h2 >解决方案</h2>
+            </a>
+            <a href="__URL__/{$vo.link} " target="_blank" ><h3 >{$vo.title}</h3></a>
+        </div>
+   <a href="__URL__/{$vo.link}" target="_blank"><img src="__PUBLIC__/Uploads/{$vo.pic}" ></a>
+   </foreach>
+  </div>
+  <!--解决方案--> 
+  
+  <!--成功案例-->
+  <div class=" video t25 columns" >
+    <foreach name="successList" item="vo">
+        <div class="dhy ">
+            <a href="__URL__/success_case?id=20">
+                <h2 >成功案例</h2>
+            </a>
+            <a href="__URL__/{$vo.link} " target="_blank" ><h3 >{$vo.title}</h3></a>
+        </div>
+         <a href="__URL__/{$vo.link}" target="_blank"> <img src="__PUBLIC__/Uploads/{$vo.pic}" ></a>
+       </foreach>
+  </div>
+  <!--成功案例-->
+  <!-- 新闻中心-->
+  <div class=" video t25 columns mr0" >
+    <foreach name="news3" item="vo">
+        <div class="dhy ">
+            <a href="__URL__/news?id=25">
+                <h2 >新闻中心</h2>
+            </a>
+           <a href="__URL__/{$vo.link} " target="_blank" > <h3>{$vo.title|mb_substr=0,11,'utf-8'}</h3></a>
+        </div>
+      <a href="__URL__/{$vo.link}" target="_blank"> <img src="__PUBLIC__/Uploads/content/{$vo.pic}" ></a>
+
+      </foreach>
+  </div>
+  <!-- 新闻中心 -->
+</div>
+<style type="text/css">
+footer{ margin-top: 0; }
+</style>
+<include file="bottom" />
+<!-- <script>
+// alert(document.body.clientWidth+'px')
+  document.getElementById('vdo').style.width=document.body.clientWidth+'px';
+  // document.getElementById('vdo').style.height=window.screen.height+'px';
+</script> -->

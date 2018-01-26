@@ -1,0 +1,44 @@
+/* scrollpic */
+.scrollpic{max-width:500px;min-height:50px;margin:0px auto;}
+#myscroll{display:block; width:100%; position:relative; height:125px; overflow:hidden;}
+#myscroll #myscrollbox{display:block; float:left; position:absolute; left:0; top:0; width:1000000px;}
+#myscroll ul{display:block; float:left; list-style-type:none; padding:0; margin:0;}
+#myscroll ul li{display:block; float:left; padding:0; margin:0;}
+#myscroll ul li a{display:block; float:left; width:218px; padding:0 10px; position:relative; height:125px; color:#333;}
+
+#mybtns{margin:10px 10px 10px 10px; display:block; height:42px; position:relative;}
+#mybtns a{width:30px; height:30px; display:block; float:right; margin-right:1px; background-color: #c1c1c1;}
+#mybtns a:hover{background-color: #00A0E9;}
+#mybtns a:hover, #myscroll, #mybtns a,#myscroll #myscrollbox{
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-ms-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+}
+#mybtns #left{background-image:url(../images/jt_l.png);}
+#mybtns #right{background-image:url(../images/jt_r.png);}
+
+@media(min-width:1572px){
+.scrollpic{max-width:1190px; width:100%;}
+#myscroll{width:1190px;}
+}
+@media(max-width:1571px){
+.scrollpic{max-width:1190px; width:100%;}
+#myscroll{width:1190px;}
+}
+@media(max-width:1309px){
+.scrollpic{max-width:952px; width:100%;}
+#myscroll{width:952px;}
+}
+@media(max-width:1047px){
+.scrollpic{max-width:714px; width:100%;}
+#myscroll{width:714px;}
+}
+@media(max-width:767px){
+.scrollpic{max-width:476px; width:100%;}
+#myscroll{width:476px;}
+}
+@media(max-width:523px){
+.scrollpic{max-width:238px; width:100%;}
+#myscroll{width:238px;}

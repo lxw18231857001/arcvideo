@@ -1,0 +1,61 @@
+<include file="top" />
+<!-- BUY NOW --><div id="slider-containerb" class=" clearfix"></div>
+<!-- menu-s -->
+
+<div id="slider-container" class=" clearfix">
+     <div id="menu-s"> 
+      <div class="grey-b "> 
+        <div class="container clearfix "> 
+          <div class="mains-nav column"> 
+            <ul>
+              <li class="mainn">{$class[5]['name']}</li>
+                <foreach name="menuList" item="v">
+              <li>
+                <if condition="$v.id eq $checkId">
+                  <a href="__URL__/news?id={$v.id}" ><span style="color:#00a0e9">{$v.name}</span></a>
+                <else/>
+                  <a href="__URL__/news?id={$v.id}" >{$v.name}</a>
+                </if>
+              </li>
+            </foreach>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+  
+    <!-- menu-s  end -->
+ </div>	<!-- Grey bg end -->	
+
+  
+
+<!-- CONTENT -->
+<foreach name="new1" item="vv">
+	<div class="container clearfix clearfix m-top-30">
+		<div class="sixteen columns m-bot-25">
+<div><p></p><h3><center>{$vv.title}</center></h3>
+ <center>{$vv.addtime|date="Y-m-d",###}</center>
+</div>	
+		<!-- PORTFOLIO ITEM -->
+			<div class="blog-item m-bot-35 clearfix" >
+                <!-- style="width:750px;" -->
+						<div class="blog-item-text-container" style="width:70%; margin:0px auto;">
+							<p >{$vv.content}</p>
+						</div>	
+			</div>
+		</div>
+	</div>
+</foreach>
+
+<script type="text/javascript" src="__PUBLIC__/home/js/jquery.validate.min.js"></script>
+<!-- Sticky nav start -->
+<script type="text/javascript" src="__PUBLIC__/home/js/jquery.sticky.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#menu-s").sticky({topSpacing:0});
+	});
+</script>
+<!-- Sticky nav end -->
+<include file="bottom" />

@@ -1,0 +1,61 @@
+@media (max-width: 1025px) and (min-width: 768px){
+/* 导航条不對其問題 */
+	#header ul.nav{
+		margin:0px !important;
+	}
+/*產品中心*/
+	.dhy {
+		width: 100%;
+		left: 0 !important;
+	}
+/*新問中心*/
+.container .sixteen.columns a .news-title p{
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.container .sixteen.columns a .news-time{
+	float: none;
+	padding-right: 25px;
+	text-align: right;
+}
+ul#portfolio{
+	margin-top: 20px;
+}
+/*ul#portfolio .one-third.column.p-bot-35*/
+.xinwen .view-first{
+	height: 330px;
+}
+.xinwen .view-first img{
+	height: 330px;
+}
+.container .two-thirds.column{
+	width: 60% !important;
+}
+.lw-item-caption-container{
+	padding:0px!important;
+}
+.table{
+	margin-top: 10px;
+}
+.container .column p, .container .columns p{
+	margin: 0px;
+}
+ul#portfolio{
+	float: none !important;
+}
+ul#portfolio .item-caption{
+	height: 57px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	/*margin-bottom:10px;*/
+	padding-bottom:0px;
+	padding-top:0;
+}
+.xinwen .view-first{
+	height: 330px;
+}
+.xinwen .view-first img{
+	height: 330px;
+}
+}

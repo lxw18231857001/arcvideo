@@ -1,0 +1,78 @@
+﻿<!-- 技术支持 -->
+<include file="top" />
+
+<!-- banner -->
+<div id="slider-containerb" class=" clearfix">
+  <neq name="two_pic" value="">
+    <div class="flexsliderb loading" >
+      <img src="__PUBLIC__/Uploads/class/{$two_pic['pic']}" class="item"  />
+      <div class="flex-captionb">
+        <div class="container columns">
+          <div class="title">
+            <h2><span class="bold" >{$two_pic['title']}</span></h2>
+            <p class="subtitle-2">{$two_pic['stitle']}</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </neq>
+</div>
+<!-- banner --> 
+     
+<!-- 二级/三级标题 -->
+<div id="menu-s"> 
+      <div class="grey-b "> 
+        <div class="container clearfix "> 
+          <div class="mains-nav column"> 
+            <ul>
+              <li class="mainn">{$class[6]['name']}</li>
+              <foreach name="menuList" item="v">
+                  <if condition="$v.id eq $checkId">
+                   <li><a  href="__URL__/{$v.id|get_class_url}?id={$v.id}" ><span style="color:#00a0e9">{$v.name}</span></a></li>
+                  <else/>
+                  <li><a  href="__URL__/{$v.id|get_class_url}?id={$v.id}" >{$v.name}</a></li>
+                  </if>
+              </foreach>
+            </ul>
+          </div>
+        </div>
+      </div>
+ </div>
+  
+<!-- menu-s  end -->
+<!-- CONTENT -->
+  <div class="container clearfix clearfix m-top-30">
+    <div class="sixteen columns m-bot-25">
+<div class="m-bot-25"><h5 >Ｑ：{$answer.title}</h5></div> 
+          <!-- End Container -->
+<div class="slider-1 clearfix" style="width:70%;">
+     <if condition="$answer.pic neq null">
+                  <img src="__PUBLIC__/Uploads/content/{$answer.pic}" class="item"  /> 
+          <else/>
+                  <br>
+       </if> 
+   </div>
+    <!-- PORTFOLIO ITEM -->
+      <div class="blog-item m-bot-35 clearfix">
+            <div class="blog-item-text-container">
+              <p>Answer:{$answer.content}</p>
+            </div>
+      </div>
+    </div>
+  
+  </div>
+
+
+
+
+<script type="text/javascript" src="__PUBLIC__/home/js/jquery.validate.min.js"></script>
+<!-- Sticky nav start -->
+<script type="text/javascript" src="__PUBLIC__/home/js/jquery.sticky.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#menu-s").sticky({topSpacing:0});
+  });
+</script>
+<!-- Sticky nav end -->
+<include file="bottom" />

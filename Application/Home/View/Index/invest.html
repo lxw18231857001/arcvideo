@@ -1,0 +1,100 @@
+﻿<include file="top" /> 
+<!-- SLIDER -->
+<!--投资管理-->
+<!-- SLIDER -->
+<div id="slider-containerb" class=" clearfix">
+   <neq name="two_pic" value="">
+<div class="flexsliderb loading" style=" background-image: url(__PUBLIC__/Uploads/class/{$two_pic['pic']})" > 
+     <!-- <img src="__PUBLIC__/Uploads/class/{$two_pic['pic']}" class="item"  />  -->
+       <div class="flex-captionb">
+  		<div class="container columns">
+			<div class="title">
+				<h2><span class="bold" >{$two_pic['title']}</span></h2>
+				<p class="subtitle-2">{$two_pic['stitle']}</p>
+			</div>
+									
+		</div>
+     </div>
+ </div>
+		</neq>
+  </div>	<!-- Grey bg end -->	
+<!-- BUY NOW -->
+    <div id="menu-s">  
+    <div class="grey-b "> 
+      <div class="container clearfix ">
+        <div class="mains-nav column"> 
+		 <!--2017/4/18郭修改导航栏显示问题-->
+		  <ul>
+            <li class="mainn">{$class[7]['name']}</li>
+			<foreach name="menuList" item="v">
+              <if condition="$v.id eq $getId">
+                <li>
+                  <a href="__URL__/{$v.id|get_class_url}?id={$v.id}" ><span style="color:#00a0e9">{$v.name}</span></a></li>
+              <else/>
+               <li><a href="__URL__/{$v.id|get_class_url}?id={$v.id}" >{$v.name}</a></li>
+              </if>
+            </foreach>
+          </ul><br/>
+        </div>
+      </div>
+    </div>
+   </div>
+
+	
+<!-- CONTENT -->
+	<div class="container filter-portfolio clearfix m-top-50">
+		 <!--content 0331 -->
+		<div class="container clearfix m-top-50 p-bot-35 "> 
+			<div class="column" id="tab137">
+				<center><h2 class="p-bot-15" >{$invest.title} </h2></center>
+				<p>{$invest.content}</p>
+			</div> 
+		</div>
+	</div>	
+	 <!--content -->
+
+
+
+
+
+
+<!-- 合作伙伴 -->
+<div class="grey-bg m-top-25 ">
+	<div class="container clearfix p-top-35 p-bot-35 ">
+	<div class="sixteen columns  ">
+		<h5 id="tab1">合作伙伴</h5>
+	</div>			
+	
+	<div class="container clearfix">
+		<div class="sixteen columns m-bot-20">
+            <div class="scrollpic">
+					<div id="mybtns">
+					  <a href="javascript:;" id="right"></a>
+					  <a href="javascript:;" id="left"></a>
+					</div>
+					<div id="myscroll">
+						<div id="myscrollbox">
+							<ul>
+				            <foreach name="friend" item="vo">
+								<li><a href=""><img src="__PUBLIC__/Uploads/other/{$vo.logo}" width="218" height="125" /></a></li>
+							</foreach>
+							</ul>
+						</div>
+					</div>
+				</div>
+		</div>	
+	</div>
+		
+	</div>	
+</div>	
+<!-- OUR NEWS End -->
+<!-- Sticky nav start -->
+<script type="text/javascript" src="__PUBLIC__/home/js/jquery.sticky.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#menu-s").sticky({topSpacing:0});
+	});
+</script>
+<!-- Sticky nav end -->
+<!-- FOOTER -->
+<include file="bottom" /> 

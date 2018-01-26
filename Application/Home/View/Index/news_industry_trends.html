@@ -1,0 +1,120 @@
+<include file="top" /> 
+  <!-- Grey bg end -->    
+  
+    
+<!-- SLIDER -->
+<div id="slider-container" class=" clearfix">
+   <neq name="two_pic" value="">
+<div class="flexslider loading" > 
+     <img src="__PUBLIC__/Uploads/{$two_pic['pic']}" class="item"  /> 
+        <div class="flex-caption">
+         		<div class="container columns">
+       			<div class="title">
+       				<h2 ><span class="bold" >{$two_pic['title']}</span></h2>
+       				<p class="subtitle-2">{$two_pic['stitle']}</p>
+       			</div>
+       									
+       		</div>
+            </div> 
+ </div>
+		</neq>
+      </div>
+     
+   </div><!-- End slider -->
+
+	
+
+<!-- BUY NOW -->
+<div id="menu-s">
+ <div class="grey-b"> 
+      <div class="container  clearfix "> 
+        <div class="mains-nav column"> 
+
+          <ul>
+            <li class="mainn ">{$_GET['id']|get_id_classname}</li>
+			<foreach name="three" item="v">
+            <li><a  href="__URL__/news_class?id={$v.id}&&pid={$v.pid}" >{$v.name}</a></li>
+			</foreach>
+			<li><a  href="#tab1" >合作伙伴</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+<!-- content -->
+		<div class="container clearfix m-top-50  ">
+		<div class="column  "><h5 >
+{$two_pic['stitle']}</h5>
+<p>
+{$two_pic['content']}</p>
+
+</div>
+		</div>
+<!-- content -->	
+	
+<!-- LATEST WORK -->
+	<div class="container filter-portfolio clearfix m-top-50">
+
+<ul id="portfolio" class="clearfix">
+				<!-- LATEST WORK ITEM -->
+				<foreach name="other" item="v">
+				<li  class="one-third column m-bot-35">
+						<div class="hover-item">
+						<a class="a-invert" href="__URL__/news_class?id={$v.id}&&pid={$v.pid}" >
+							<div class="view view-first">
+								<img  style="width:350px;height:180px;"src="__PUBLIC__/Uploads/{$v.id|get_quick_pic}" alt="Ipsum" >
+								<div class="mask"></div>	
+
+							</div>
+						</a>
+							<div class="lw-item-caption-container">
+								<a class="a-invert" href="__URL__/news_class?id={$v.id}&&pid={$v.pid}" >
+									<div class="item-title-main-container clearfix">
+										<div class="item-title-text-container">
+										{$v.name}
+										</div>
+									</div>
+								</a>
+								<div style="width:350px;height:120px;" class="item-caption">
+									{$v.id|get_quick_content|htmlspecialchars_decode|strip_tags|mb_substr=0,85,'utf-8'}</div>
+							</div>
+						</div>
+				</li>
+				</foreach>
+			</ul>
+
+	</div>	
+<!-- OUR PROJECTS End -->
+
+
+
+
+
+<!-- LATEST NEWS -->
+<div class="grey-bg m-top-25 ">
+	<div class="container clearfix p-top-35 p-bot-35 ">
+	<div class="sixteen columns  "><h5 id="tab1">
+合作伙伴</h5>
+</div>			
+	<!-- OUR CLIENTS -->
+	<div class="container clearfix">
+		<div class="sixteen columns m-bot-20">
+			<ul class="our-clients-container clearfix ">
+					<foreach name="friend" item="vo">
+				<li class="">
+					<a href="#">
+						<!-- honor修改为other -->
+              <div class="bw-wrapper"> <img src="__PUBLIC__/Uploads/other/{$vo.logo}" alt="client" > 
+              </div>
+					</a>
+				</li>
+				</foreach>
+            </ul>
+		</div>	
+	</div>
+		
+	</div>	</div>	
+<!-- OUR NEWS End -->
+
+<!-- FOOTER -->
+<include file="bottom" /> 

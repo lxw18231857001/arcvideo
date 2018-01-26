@@ -1,0 +1,137 @@
+﻿<include file="top" />
+<!-- SLIDER -->
+<div id="slider-containerb" class=" clearfix">
+   <neq name="two_pic" value="">
+<div class="flexsliderb loading" id="flexsliderb" style="background-image: url(__PUBLIC__/Uploads/class/{$two_pic['pic']});"> 
+     <!-- <img src="__PUBLIC__/Uploads/class/{$two_pic['pic']}" class="item"  />  -->
+       <div class="flex-captionb">
+  		<div class="container columns">
+			<div class="title">
+				<h2><span class="bold" >{$two_pic['title']}</span></h2>
+				<p class="subtitle-2">{$two_pic['stitle']}</p>
+			</div>						
+		</div>
+     </div>
+ </div>
+		</neq>
+      </div>
+<!-- End slider -->
+<style type="text/css">
+	@media only screen and (max-width: 768px){
+		ul{ padding:0; 
+			width:100%;}
+	.container .two-thirds.column{
+		width:96%;
+	}
+	.m-bot-35{ width:100%; margin-bottom: 10px !important; }
+	.hover-item .view-first{ margin-bottom:5px; }
+	ul li.m-bot-35 {
+		 }
+	.pagination{  width:99%; padding: 0px .5%; overflow: hidden;}
+}
+@media only screen and (max-width: 768px){
+	.two-thirds a p{ margin:0px auto; }
+	.two-thirds .item-caption{ margin-top: 0px; height:72px; }
+	.two-thirds .item-caption p{ margin-top:5px; }
+	.table.viewmore a{ margin-top:8px; margin-bottom: 10px; }
+}
+@media only screen and (max-width: 480px){
+	.container .one-third.column{
+	}
+}
+
+</style>
+ <!-- BUY NOW -->     
+    <div id="menu-s">
+    <div class="grey-b "> 
+      <div class="container clearfix"> 
+        <div class="mains-nav column"> 
+		 <!--2017/4/18郭修改导航栏显示问题-->
+           <ul>
+            <li class="mainn">{$class[5]['name']}</li>
+			<foreach name="menuList" item="v">
+              <li>
+                <if condition="$v.id eq $getId">
+                 	<a href="__URL__/news?id={$v.id}" ><span style="color:#00a0e9">{$v.name}</span></a>
+              	<else/>
+                	<a href="__URL__/news?id={$v.id}" >{$v.name}</a>
+              	</if>
+              </li>
+            </foreach>
+          </ul><br/>
+          <!-- lxw20170525 -->
+        </div>
+      </div></div>
+    </div>
+<!-- LATEST WORK -->
+<div class="m-bot-35 m-top-25">
+	<div class="container filter-portfolio clearfix">
+<ul id="portfolio" class="clearfix profiles newshtml">
+				<!-- LATEST WORK ITEM -->
+				<foreach name="newList" item="vv">
+                <li  class=" m-bot-35 ">
+						<div class="one-third column">
+						<div class=" hover-item ">
+							<!-- 图片链接 -->
+							<div class="view view-first">
+                            <if condition="$getId eq 25">
+								<a class="a-invert" href="__URL__/news_view?id={$vv.id}&&nid={$getId} " target="_blank" >	
+                            <else/>	
+                                <a class="a-invert" href="{$vv.link}" target="_blank" >
+                           </if>
+									<switch name="vv.pic">
+										<case value="">
+											<img src="__PUBLIC__/Uploads/content/news_index.png" alt="Ipsum" > 
+										</case>
+										<default/>
+										<img src="__PUBLIC__/Uploads/content/{$vv.pic}" alt="Ipsum" > 
+									</switch>
+								</a>
+								<div class="mask"></div>	
+							</div>
+							</div>
+						</div>
+						<!-- //图片链接 -->
+						<div class="two-thirds column">
+							<div class="lw-item-caption-container">
+                            <if condition="$getId eq 25">
+								<a class="a-invert" href="__URL__/news_view?id={$vv.id}&&nid={$getId} " target="_blank" >		
+                            <else/>	
+                            	<a class="a-invert" href="{$vv.link}" target="_blank" >
+                           </if>							
+                                                <p class="subtitle-2">{$vv.addtime|date="Y-m-d",###}</p>
+											<div class="of" style=" width:90%; ">
+												<strong>{$vv.title|mb_substr=0,45,'utf-8'}</strong>
+											</div>
+										
+									<div class="item-caption hsize"><p>{$vv.content|htmlspecialchars_decode|strip_tags|mb_substr=0,245,'utf-8'}
+									</p> 
+									</div></a>
+						<!-- 了解详情 -->
+							<div class="table viewmore">
+                                    <if condition="$getId eq 25">
+                                    	<a class="" href="__URL__/news_view?id={$vv.id}&&nid={$getId}" target="_blank">了解详情 </a>
+                                    <else/>
+                                    	<a class="" href="{$vv.link}" target="_blank">
+                                    	了解详情 </a>
+                                    </if>
+                                </div>
+							</div>
+							</div>
+                            <div style="clear:both"></div>
+				</li>
+                </foreach>
+			</ul>
+	</div></div>
+	<center class="pagination"><ul>{$page}</ul></center>	
+
+
+<!-- Sticky nav start -->
+<script type="text/javascript" src="__PUBLIC__/home/js/jquery.sticky.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#menu-s").sticky({topSpacing:0});
+	});
+</script>
+<!-- Sticky nav end -->
+<include file="bottom" />

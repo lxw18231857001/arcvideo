@@ -1,0 +1,86 @@
+﻿<include file="top" />
+<!--登录页面-->
+<script type="text/javascript">
+		function chkform(){ 
+		//验证用户名
+			var str = document.getElementById('username').value.trim(); 
+		 	if(str.length==0){
+		 		alert("用户名不能为空");
+				username.focus(); return false;
+		 	}
+		//验证邮箱
+			var str = document.getElementById('email').value.trim(); 
+		 	if(str.length==0){
+		 		alert("电子邮箱不能为空");
+				email.focus(); return false;
+		 	}else if(str.length!=0){ 
+				reg=/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/; 
+				if(!reg.test(str)){ 
+				alert("对不起，电子邮箱不合法!");email.focus();return false;
+				} 
+			}
+		}
+ </script>
+
+
+<div id="slider-container" class=" clearfix"></div>	
+<!-- Grey bg end -->
+	
+<div class="log-bg p-bot-35  " style="background:url(__PUBLIC__/Uploads/bg.jpg) no-repeat top center ;background-position:50% 0;background-size:cover;">
+<div class="container clearfix  p-top-35">
+<div class="hy two-thirds column clearfix" style="margin-top:160px;">
+	<h3 style="color:#ffffff;">全球领先的智能视频解决方案与视频云服务提供商</h3>
+	<h5 style="color:#ffffff;">引领全球视听技术的发展、让人们获得最佳的视听体验</h5>
+</div>		
+	<div class="one-third column clearfix logon m-top-80">
+	
+	<div class="contact-form-container">
+	<div class="hy logtitle"></div>
+	<div class="hylog p-top-35 p-bot-35" style="margin-left:210px">
+	            <h3 style="color:#ffffff;">密码重置</h3>
+				<form class="form form-horizontal" action="#" method="post" onsubmit="return chkform(this)">
+		      <div class="row cl">
+		        <label class="form-label col-xs-3"><i class="Hui-iconfont"></i></label>
+		        <div class="formControls col-xs-8">
+		          <input  name="name" id="username" type="text" onblur="if(this.value=='')this.value='请输入帐号';" onfocus="if(this.value=='请输入帐号')this.value='';"   placeholder="用户名"  class="input-text size-L"  style="width:290px;">
+		        </div>
+		      </div>
+
+		      <div class="row cl">
+		        <label class="form-label col-xs-3"><i class="Hui-iconfont"></i></label>
+		        <div class="formControls col-xs-8">
+		          <input  name="email" id="email" type="email" onblur="if(this.value=='')this.value='请输入邮箱';" onfocus="if(this.value=='请输入邮箱')this.value='';"  placeholder="请输入邮箱"   class="input-text size-L" style="width:290px">
+		        </div>
+		      </div>
+
+		      <div class="row cl">
+		        <div class="formControls col-xs-8 col-xs-offset-3">
+		          <input name=""  type="submit" class="button medium" value="提 交">
+		        </div>
+		      </div>
+		      
+		    </form>
+	</div>
+			</div>
+	</div>	
+	
+	
+	
+	</div>
+</div>
+	
+
+
+
+
+
+		<script type="text/javascript" src="__PUBLIC__/home/js/jquery.validate.min.js"></script>
+<!-- Sticky nav start -->
+<script type="text/javascript" src="__PUBLIC__/home/js/jquery.sticky.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#menu-s").sticky({topSpacing:0});
+	});
+</script>
+<!-- Sticky nav end -->
+<include file="bottom" />

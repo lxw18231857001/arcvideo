@@ -1,0 +1,77 @@
+﻿<include file="top" />
+		    
+
+<div id="slider-container" class=" clearfix">
+ <neq name="two_pic" value="">
+    <div class="flexslider loading" > 
+   	  <img src="__PUBLIC__/Uploads/{$two_pic['pic']}" class="item"  /> 
+     <div class="flex-caption">
+         		<div class="container columns">
+       			<div class="title">
+       				<h2 ><span class="bold" >{$two_pic['title']}</span></h2>
+       				<p class="subtitle-2">{$two_pic['stitle']}</p>
+       			</div>
+       
+       									
+       		</div>
+            </div>
+ </div>
+	</neq>
+</div>	
+<!-- menu-s -->
+
+<div id="menu-s"> 
+    <div class="grey-b"> 
+      <div class="container  clearfix "> 
+        <div class="mains-nav column"> 
+
+          <ul>
+            <li class="mainn ">{$_GET['id']|get_id_classname}</li>
+			<foreach name="three" item="v">
+            <li><a  href="__URL__/news_class?id={$v.id}&&pid={$v.pid}" >{$v.name}</a></li>
+			</foreach>
+          </ul>
+        </div>
+      </div>
+    </div>
+   </div> 
+    <!-- menu-s  end -->
+  
+ </div>	<!-- Grey bg end -->	
+<!-- End slider -->
+   
+
+<!-- CONTENT -->
+	<div class="container clearfix clearfix m-top-30">
+		<div class="sixteen columns m-bot-25">
+		<!-- PORTFOLIO ITEM -->
+			<div class="blog-item m-bot-35 clearfix">
+						<div class="blog-item-text-container">
+
+						</div>
+
+	
+			</div>
+					
+
+<!-- TABS -->
+
+			<div class="m-top-30 m-bot-55">
+				<div class="m-bot-25"><h3 ><center>{$show.title}</center></h3>
+				  <br><center>{$show.addtime|date="Y-m-d",###}</center>
+				</div>
+				{$show.content}
+						
+			</div><!-- TABS -->		
+	
+
+		</div>
+
+
+	</div>
+
+
+
+
+<!-- FOOTER -->
+	<include file="bottom" /> 

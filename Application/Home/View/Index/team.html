@@ -1,0 +1,98 @@
+﻿<include file="top" /><!--管理团队页面-->
+<style type="text/css">
+@media only screen and (max-width: 1200px){
+/*.container .two-thirds div,.container .two-thirds div p{ display: inline; }*/
+}
+@media only screen and (min-width: 768px) and (max-width: 1024px){
+	.container .two-thirds.column{ width:64%; }
+}
+</style>
+<!-- SLIDER -->
+<div id="slider-containerb" class=" clearfix">
+   <neq name="two_pic" value="">
+<div class="flexsliderb loading" > 
+     <img src="__PUBLIC__/Uploads/class/{$two_pic['pic']}" class="item"  /> 
+       <div class="flex-captionb">
+  		<div class="container columns">
+			<div class="title">
+				<h2><span class="bold" >{$two_pic['title']}</span></h2>
+				<p class="subtitle-2">{$two_pic['stitle']}</p>
+			</div>
+									
+		</div>
+     </div>
+ </div>
+		</neq>
+      </div>
+<!-- End slider -->
+
+ <!-- BUY NOW -->    
+<div id="menu-s">
+  <div class="grey-b "> 
+    <div class="container clearfix "> 
+      <div class="mains-nav column"> 
+	  	 <!--2017/4/18郭修改导航栏显示问题-->
+	   <ul>
+            <li class="mainn">{$class[7]['name']}</li>
+			<foreach name="menuList" item="v">
+              <if condition="$v.id eq $getId">
+                <li>
+                  <a href="__URL__/{$v.id|get_class_url}?id={$v.id}" ><span style="color:#00a0e9">{$v.name}</span></a></li>
+              <else/>
+               <li><a href="__URL__/{$v.id|get_class_url}?id={$v.id}" >{$v.name}</a></li>
+              </if>
+            </foreach>
+          </ul><br/>
+      </div>
+    </div>
+  </div>
+</div>
+
+	
+<div class="container m-bot-35 m-top-45 clearfix teamlist" >
+		
+					<div class="one-third column">
+						<div class="img-about">
+							<img alt="" src="__PUBLIC__/Uploads/other/{$boss.pic}">
+						</div>
+					</div>
+					<div class="two-thirds column">					
+						<div class="team-name">
+							<h5>{$boss.name}</h5>
+							<span>{$boss.job}</span>
+						</div>
+						<div>
+							{$boss.content}
+						</div>
+					</div>
+	</div>	
+<div class="container clearfix m-top-35 teamlist2"  style="margin-top:80px !important;">	
+	<foreach name="member" item="v">
+			<div class="four columns" id="tab1">
+				<div class="content-container-white m-bot-35 clearfix">	
+					<img alt="头像" src="__PUBLIC__/Uploads/other/{$v['pic']}">
+					<div class="lw-item-caption-container">
+						<div class="team-name">
+							<h5>{$v.name}</h5>
+							<span>{$v.job}</span>
+							<p>
+							{$v.content}
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+	</foreach>
+</div>
+		<script src="__PUBLIC__/js/flex-slider.js"></script> 
+
+		<script type="text/javascript" src="__PUBLIC__/home/js/jquery.validate.min.js"></script>  
+<!-- Sticky nav start -->
+<script type="text/javascript" src="__PUBLIC__/home/js/jquery.sticky.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#menu-s").sticky({topSpacing:0});
+	});
+</script>
+<!-- Sticky nav end -->
+<include file="bottom" />

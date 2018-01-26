@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html style="width:100%;height:100%">
+<head>
+    <title>{$title.name} {$system.name}：全球领先的智能视频解决方案与视频云服务提供商</title>
+    <!-- <title>{$system.name}：全球领先的智能视频解决方案与视频云服务提供商</title> -->
+    <meta charset=utf-8 >
+    <!-- 启用360浏览器的极速模式(webkit) -->
+    <meta name="renderer" content="webkit" />
+    <!-- 避免IE使用兼容模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta name="robots" content="index, follow" >
+    <meta name="keywords" content="{$system.key}" >
+    <meta name="description" content="{$system.describe}" >
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="__PUBLIC__/home/images/favicon.ico">
+    <!-- CSS begin -->
+    <script type="text/javascript" src="__PUBLIC__/home/js/html5.js"></script>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/style.css" >
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/skeleton.css" >
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/friend-slider.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/jquery.fancybox-1.3.4.css"  >
+    <link rel="stylesheet" href="__PUBLIC__/home/css/switcher/style.css">
+    <link rel="stylesheet" href="__PUBLIC__/home/css/layout/wide.css" id="layout">
+
+    <!--[if lte IE 8]><link rel="stylesheet" type="text/css" href="css/ie-warning.css" ><![endif]-->
+    <!--[if lte IE 9]><link rel="stylesheet" type="text/css" media="screen" href="css/style-ie.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" type="text/css" href="css/ei8fix.css" ><![endif]-->
+
+    <!-- flexslider slider CSS 2017/3/31 -->
+
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/home/css/flexslider2.css"  >
+    <link href="__PUBLIC__/home/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/home/css/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
+    <!--end flexslider slider CSS -->
+    <!-- CSS end -->
+
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="js/html5.js"></script>
+    <![endif]-->
+
+    <!-- JS begin -->
+
+    <script type="text/javascript" src="__PUBLIC__/home/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/home/js/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/home/js/superfish.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/home/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/home/js/bootstrap.js"></script>
+    <!-- Flex Slider   -->
+    <script src="__PUBLIC__/home/js/jquery.flexslider.js"></script>
+    <script src="__PUBLIC__/home/js/flex-slider2.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/home/js/jquery.flexslider-min.js"></script>
+    <!-- end Flex Slider -->
+    <script type="text/javascript" src="__PUBLIC__/home/js/jquery.jcarousel.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/home//js/jquery.fancybox-1.3.4.pack.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/home//js/jQuery.BlackAndWhite.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/home/js/jflickrfeed.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/home/js/jquery.quicksand.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/home/js/main.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/home/js/jquery-cookie.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/home/js/friend.js"></script>
+
+    <script type="text/javascript" id="ipone_script"></script>
+    <script>
+        addEventListener('DOMContentLoaded',function(){
+            var oW=document.documentElement.clientWidth;
+            var oS1=document.getElementById('ipone_script');
+            if(oW<=1019){
+                oS1.src='__PUBLIC__/home/js/ipone_script.js';
+                
+            }
+
+        },false);
+
+
+           /* window.onmousewheel = function (e) {
+                e = e || event;
+               if (e.wheelDelta) {  //判断浏览器IE，谷歌滑轮事件
+                    if (e.wheelDelta < 0) { //当滑轮向下滚动时
+                        $(".productList").css("display", "none");
+                    }
+               } else if (e.detail) {  //Firefox滑轮事件
+                    if (e.detail < 0) { //当滑轮向下滚动时
+                        $(".productList").css("display", "none");
+                        return false;
+                    }
+               }
+
+
+            }
+*/
+
+    </script>
+    <!-- JS end -->
+    <script type="text/javascript">
+        function bigImg(x)
+        {return;}
+    </script>
+</head>
+<body>
+<style type="text/css">
+  .nav-collapse .nav>li:hover>a{ border-bottom: #00A0E8 solid 3px; }
+</style>
+<div id="wrap" class="boxed">
+  <div class="header-bg ">
+    <div class="grey-bg ">
+      <!-- HEADER -->
+      <header id="header " >
+        <div class="container clearfix">
+          <div class="navbar navbar-inverse">
+            <!--手机右上角-->
+            <div class="navbar-inner">
+              <a class="btn btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse" onclick="collapse()" style="z-index:999">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </a>
+              <a class="brand" href="__URL__/index.html">
+                <img src="__PUBLIC__/Uploads/system/{$logo}" >
+              </a>
+              <div class="nav-collapse collapse">
+                <ul class="nav">
+                  <li class="dropdown menuitem">
+                    <a href="__URL__/index.html" class="dropdown-toggle" >首页</a>
+                  </li>
+                  <foreach name="class" item="vo">
+                    <li class="dropdown menuitem  item{$vo.id} ">
+                      <if condition="$vo.id eq 6">
+                        <a href="{$vo.link}" class="dropdown-toggle"  target="_blank">当虹云</a>
+                      <elseif condition="$vo.id eq $currentId"/>
+                        <a href="__URL__/{$vo.link}" class="dropdown-toggle active"  >{$vo.name}</a>
+                      <else/>
+                        <a href="__URL__/{$vo.link}" class="dropdown-toggle"  >{$vo.name}</a>
+                      </if>
+
+                      <!-- 二级 -->
+                      <if condition="$vo.id eq 2 ">
+                        <ul class="dropdown-menu submenu productList chanpin">
+                          <volist name=":getsub($vo['id'])" id="vv">
+                            <li>
+                              <p class="erji">
+                                <a href="__URL__/{$vv.id|get_class_url}?id={$vv.id}" >{$vv.name}</a>
+                              </p>
+                              <!-- =========三级========= -->
+                              <div class="product1 productL">
+                              <volist name=":other_class($vv['id'])" id="vvv">
+                                  <p><a href="__URL__/{$vvv.path|get_name_three}?id={$vvv.id}&&pid={$vv.id}">{$vvv.name}</a></p>
+                              </volist>
+                              </div>
+                              <!-- =========三级========= -->
+                            </li>
+                          </volist>
+                        </ul>
+                    <elseif condition=" $vo.id eq 4 "/>
+                        <ul class="dropdown-menu submenu productList jiejue">
+                          <volist name=":getsub($vo['id'])" id="vv">
+                            <li>
+
+                              <p class="erji">
+                                <a href="__URL__/{$vv.id|get_class_url}?id={$vv.id}" >{$vv.name|jiejue_replace}</a>
+                              </p>
+                              <!-- =========三级========= -->
+                              <div class="product1 productL">
+                              <volist name=":other_class($vv['id'])" id="vvv">
+                                  <p><a href="__URL__/{$vvv.path|get_name_three}?id={$vvv.id}&&pid={$vv.id}">{$vvv.name|jiejue_replace}</a></p>
+
+
+                              </volist></div>
+                              <!-- =========三级========= -->
+                            </li>
+                          </volist>
+                        </ul>
+                      <else/>
+                        <ul class="dropdown-menu submenu">
+                          <volist name=":getsub($vo['id'])" id="vv">
+                            <if condition="$vv.id eq 324">
+                                <li>
+                                <a href="__URL__/{$vv.id|get_class_url}?id={$vv.id}" target="_blank">{$vv.name}</a>
+                                 </li>
+                            <else/>
+                              <li>
+                                <a href="__URL__/{$vv.id|get_class_url}?id={$vv.id}" >{$vv.name}</a>
+                              </li>
+                            </if>
+                            
+
+                          </volist>
+                        </ul>
+                      </if>
+                      <!-- 二级 -->
+                    </li>
+                  </foreach>
+                  <!-- <li class="dropdown menuitem">
+                    <a href="http://channel.hongshiyun.net/" class="dropdown-toggle">渠道计费</a>
+                  </li> -->
+                </ul>
+                  <script>
+                  // var ww=$(".item8 .submenu li:last");
+                  //  ww.find("a").attr("target","_blank");
+
+                    var whidth =  $(".navbar-inner").width();
+                    var whidh = window.screen.availWidth;
+                    var pol =  (whidh-1220)/2;
+                    $(".productList").css("left",pol);
+                    $(".productList").width(whidth);
+                  </script>
+             <div class="menuend">
+                  <div class="guoleft">
+                    <div class="commonTopbar_login">
+
+                    <if condition="$account neq null">
+                      <span class="userName">{$account|substr_replace='*',3,4},您好</span>
+                    <else/>
+                        <a href="__URL__/login.html" target="_self">登录</a>
+                        <span class="xiexian">/</span>
+                        <a href="__URL__/registe.html" target="_self">注册</a>
+                    </if>
+
+                    </div>
+                  </div>
+                  <div class="bar_right">
+                    <div class="sou">
+                      <div class="topForm">
+                        <form name="form1"  action="__URL__/search" class="sou_from" method="get">
+                          <input type="button" class="btn1 btn_2" value="">
+                          <input type="submit" class="btn1 btn_3" value="">
+                          <input type="text" name="title" id="search" class="input1 input_hover" placeholder="关键词" style="overflow: hidden;">
+                        </form>
+                      </div>
+                      <a href="javascript:;" class="navA"></a> </div>
+                     <script type="text/javascript">
+                    $(function(){
+                        $('.topForm').click(function(){
+                          $(this).find('.input1').stop().animate({width: 110}, 500);
+                          $(this).find('.input1').css("border","1px solid #ccc");
+                          $(this).stop().animate({right: 110}, 500);
+                          $(this).find('.input1').focus().css("border-left","none");
+                          $(".btn1").css({"border":"1px solid #ccc","border-right":"none","width":"24"});
+                          $(".btn_2").css("width","24");
+
+                        });
+                        $(".input1").blur(function(){
+                          $('.input1').stop().animate({width: 0}, 500).css("border","none");
+                          $(".topForm").stop().animate({right: 24}, 500);
+                          $(".btn1").css("border","none");
+                          $(".btn_3").css("display","black");
+                          $(".btn_2").css("width","36");
+
+                        });
+                        var whide = $(".input1").width(0);
+                        if(whide){
+                          $(".input1").css("border","none");
+                        }
+                      })
+                    </script>
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+
+        <!--end: Navigation -->
+
+    </header>
+  </div>
+</div>
+</div>
+<!-- Grey bg end --> 

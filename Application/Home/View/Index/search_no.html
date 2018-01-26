@@ -1,0 +1,42 @@
+﻿<include file="top"/>
+<!-- BUY NOW 搜索展示页面-->
+<div id="slider-container" class=" clearfix"></div>	
+  
+<div id="menu-s">
+  <div class="grey-b "> 
+    
+  </div>
+</div>
+
+
+
+<!-- LATEST WORK -->
+<div class=" p-top-35 m-bot-35 p-bot-35" style="height:400px">
+  <div class="container clearfix "> 
+      <div class="mains-nav column"> 
+        <ul>
+          <li class="mainn">内容搜索{$list[0]['title']}</li>
+          <li >
+            抱歉！关于“<font color="red">{$Think.session.keyword}</font>”的搜索内容为空，没有找到您要查找的内容
+          </li>
+
+        </ul>
+      </div>
+    </div>
+	
+</div>	
+
+
+
+
+  <script type="text/javascript" src="__PUBLIC__/home/js/jquery.validate.min.js"></script>
+    
+<!-- Sticky nav start -->
+<script type="text/javascript" src="__PUBLIC__/home/js/jquery.sticky.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#menu-s").sticky({topSpacing:0});
+  });
+</script>
+<!-- Sticky nav end -->
+<include file="bottom" />

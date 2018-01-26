@@ -1,0 +1,81 @@
+	<include file="top" />
+<!---人力资源招聘页面-->
+<!-- SLIDER -->
+<div id="slider-containerb" class=" clearfix"></div>
+<!-- BUY NOW -->
+<div id="menu-s">
+  <div class="grey-b "> 
+    <div class="container clearfix "> 
+      <div class="mains-nav column"> 
+	   <!--2017/4/18郭修改导航栏显示问题-->
+	     <ul>
+            <li class="mainn">{$class[7]['name']}</li>
+			<foreach name="menuList" item="v">
+              <if condition="$v.id eq $lid">
+                <li>
+                  <a href="__URL__/{$v.id|get_class_url}?id={$v.id}" ><span style="color:#00a0e9">{$v.name}</span></a></li>
+              <else/>
+               <li><a href="__URL__/{$v.id|get_class_url}?id={$v.id}" >{$v.name}</a></li>
+              </if>
+            </foreach>
+          </ul><br/>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+		<div class="container clearfix ">
+		<div class="column  "><h5 >{$rec.title}</h5>
+		<p>{$rec.content}</p>
+
+</div>
+	</div>	
+
+<!-- 合作伙伴 -->
+<div>
+	<div class="container clearfix p-bot-35 ">
+		<div class="sixteen columns m-bot-25 ">
+		<h5><strong>招聘信息</strong></h5>
+        </div>
+
+	<div class="contanier">	
+		<div class="column">
+			<!-- LATEST WORK ITEM -->
+				<foreach name="list" item="vv">
+						<div class="hover-item">
+							<div class="lw-item-caption-container">
+								<a class="a-invert">
+									<div class="item-title-main-container clearfix">
+										<div class="item-title-text-container">
+										{$vv.title}
+										</div>
+									</div>
+								</a>
+								<div >{$vv.content}</div>
+				
+							</div>
+						</div>
+				</foreach>
+				
+				<a href="__URL__/rec_add?id={$vv.id}&&lid={$lid}"><center ><button class="item-caption btn-rec" style="width:120px;">申请职位</button></center></a>
+		</div>
+		</div>
+	</div>	
+	</div>	
+<!-- OUR NEWS End -->
+
+<!-- OUR PROJECTS End -->
+
+
+		<script type="text/javascript" src="__PUBLIC__/home/js/jquery.validate.min.js"></script>
+		
+<!-- Sticky nav start -->
+<script type="text/javascript" src="__PUBLIC__/home/js/jquery.sticky.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#menu-s").sticky({topSpacing:0});
+	});
+</script>
+<!-- Sticky nav end -->
+<include file="bottom" />
